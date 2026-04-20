@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// Payment Failure Intelligence System - Power BI DAX Measures
+// -----------------------------------------------------------------------------
+
+// 1. Success Rate % (Executive Health Metric)
+Success Rate % = 
+CALCULATE(COUNT(transactions[transaction_id]), transactions[status] = "success") / COUNT(transactions[transaction_id])
+
+// 2. Revenue Leakage (Alarm Metric)
+Revenue Leakage = 
+CALCULATE(SUM(transactions[amount]), transactions[status] = "failed")
+
+// 3. Failure Rate % (Measure Branching)
+Failure Rate % = 
+1 - [Success Rate %]
+
+// 4. Custom Column: Failure Hour (For Server Load Line Chart)
+Failure Hour = 
+HOUR(transactions[timestamp])
+
+// 5. Conditional Formatting: Bank Highlight Color (Visual Storytelling)
+Bank Highlight Color = 
+IF(
+    SELECTEDVALUE(transactions[bank]) = "SBI", 
+    "#FF3D00", // Bright Red for highest risk
+    "#D3D3D3"  // Neutral Grey for others
+)
