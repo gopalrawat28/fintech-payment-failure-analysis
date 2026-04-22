@@ -22,7 +22,7 @@ Built with the scale of high-volume fintech operations in mind (e.g., Paytm, Cre
 - `powerbi/` : Contains the `.pbix` dashboard file and a text file of all DAX measures.
 
 ## 📸 Dashboard Preview
-![Power BI Dashboard](dashboard_screenshot.png.png)
+![Power BI Dashboard](dashboard_screenshot.png)
 
 ---
 *Built by Gopal Rawat | Data & Business Analyst*
